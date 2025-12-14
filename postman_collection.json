@@ -1,0 +1,113 @@
+{
+  "info": {
+    "_postman_id": "5f934717-35e6-439b-91d3-9b0642eec915",
+    "name": "Blog API – Authors & Posts",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "POST /authors",
+      "request": {
+        "method": "POST",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Navya Alpha\",\n  \"email\": \"navya_alpha@example.com\"\n}",
+          "options": { "raw": { "language": "json" } }
+        },
+        "url": "http://localhost:3000/authors"
+      }
+    },
+    {
+      "name": "GET /authors",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:3000/authors"
+      }
+    },
+    {
+      "name": "GET /authors/:id",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:3000/authors/14"
+      }
+    },
+    {
+      "name": "PUT /authors/:id",
+      "request": {
+        "method": "PUT",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Navya Alpha Updated\",\n  \"email\": \"navya_alpha_updated@example.com\"\n}",
+          "options": { "raw": { "language": "json" } }
+        },
+        "url": "http://localhost:3000/authors/14"
+      }
+    },
+    {
+      "name": "DELETE /authors/:id",
+      "request": {
+        "method": "DELETE",
+        "url": "http://localhost:3000/authors/14"
+      }
+    },
+    {
+      "name": "GET /authors/:id/posts",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:3000/authors/14/posts"
+      }
+    },
+    {
+      "name": "POST /posts",
+      "request": {
+        "method": "POST",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Hello World!\",\n  \"content\": \"My first blog content\",\n  \"author_id\": 14\n}",
+          "options": { "raw": { "language": "json" } }
+        },
+        "url": "http://localhost:3000/posts"
+      }
+    },
+    {
+      "name": "GET /posts",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:3000/posts"
+      }
+    },
+    {
+      "name": "GET /posts?author_id",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:3000/posts?author_id=14"
+      }
+    },
+    {
+      "name": "GET /posts/:id",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:3000/posts/5"
+      }
+    },
+    {
+      "name": "PUT /posts/:id",
+      "request": {
+        "method": "PUT",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Updated Post Title\",\n  \"content\": \"Updated post content\"\n}",
+          "options": { "raw": { "language": "json" } }
+        },
+        "url": "http://localhost:3000/posts/5"
+      }
+    },
+    {
+      "name": "DELETE /posts/:id",
+      "request": {
+        "method": "DELETE",
+        "url": "http://localhost:3000/posts/5"
+      }
+    }
+  ]
+}
