@@ -13,10 +13,14 @@ const Post = sequelize.define("Post", {
   }
 });
 
-// Relate post to author (one-to-many)
+// Relationships (one-to-many)
 Post.belongsTo(Author, {
   foreignKey: "author_id",
   onDelete: "CASCADE"
+});
+
+Author.hasMany(Post, {
+  foreignKey: "author_id"
 });
 
 module.exports = Post;

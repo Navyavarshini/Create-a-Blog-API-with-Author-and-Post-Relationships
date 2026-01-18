@@ -4,8 +4,21 @@ const { Post, Author } = require("../models");
 
 // CREATE
 router.post("/", async (req, res) => {
-  const post = await Post.create(req.body);
-  res.status(201).json(post);
+  try {
+    const { title, content, author_id } = req.body;
+
+    // ✅ Explicit validation for author existence
+    const author = await Author.findByPk(author_id);
+    if (!author) {
+      return res.status(404).json({ error: "Author not found" });
+    }
+
+    const post = await Post.create({ title, content, author_id });
+    res.status(201).json(post);
+
+  } catch (error) {
+    res.status(500).json({ error: "Failed to create post" });
+  }
 });
 
 // GET ALL (with optional filtering)

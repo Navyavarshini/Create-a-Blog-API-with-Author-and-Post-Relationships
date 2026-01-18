@@ -28,20 +28,16 @@ router.get("/:id", async (req, res) => {
 // GET POSTS FOR A SPECIFIC AUTHOR
 router.get("/:id/posts", async (req, res) => {
   try {
-    const authorId = req.params.id;
+    const author = await Author.findByPk(req.params.id, {
+      include: Post
+    });
 
-    const author = await Author.findByPk(authorId);
     if (!author) {
       return res.status(404).json({ error: "Not found" });
     }
 
-    const posts = await Post.findAll({
-      where: { author_id: authorId }
-    });
-
-    res.json(posts);
+    res.json(author.Posts);
   } catch (err) {
-    console.error(err);
     res.status(500).json({ error: "Internal server error" });
   }
 });
