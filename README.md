@@ -29,6 +29,9 @@ Create a Blog API with Author and Post Relationships
 └── README.md
 
 Database Design:-
+Environment Configuration:
+Database credentials and sensitive configuration values are managed using environment variables via a .env file. A sample .env.example file is provided for setup, ensuring no secrets are committed to version control.
+
 Author Table:-
 
 =>id (Primary Key)
@@ -85,13 +88,14 @@ How to Run the Project:-
 1.Install dependencies
 npm install
 
-2.Configure database credentials in
-config/db.js
+2.Create a .env file using the provided .env.example and configure database credentials
 
-3.Start the server
+3. Environment variables are used to securely manage database credentials.
+
+4.Start the server
 npm run dev
 
-4.Server runs at
+5.Server runs at
 http://localhost:3000
 
 Project Status:-
